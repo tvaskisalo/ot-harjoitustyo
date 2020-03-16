@@ -1,0 +1,123 @@
+commit 0b8ac86e602287f339745fd4b7ecc2fe26a02ac1
+Author: Tapani Vaskisalo <tapani.vaskisalo@outlook.com>
+Date:   Mon Mar 16 20:08:49 2020 +0200
+
+    changes
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit d2778bdddbd0c26dcba2101df6ad3ab42ef42a7d
+Author: Tapani Vaskisalo <tapani.vaskisalo@outlook.com>
+Date:   Mon Mar 16 20:01:40 2020 +0200
+
+    m
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 07fb0c767d03f795f99c1adc7107648065d52512
+Author: Tapani Vaskisalo <tapani.vaskisalo@outlook.com>
+Date:   Mon Mar 16 19:56:45 2020 +0200
+
+    muutettiin
+
+ eka.txt    | 6 ++----
+ kolmas.txt | 4 +++-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+commit 02e9e25cf8035708917ffbcf669bac53fc62a708
+Author: Tapani Vaskisalo <tapani.vaskisalo@outlook.com>
+Date:   Mon Mar 16 14:58:18 2020 +0200
+
+    tiedosto poistettiin
+
+ tiedosto.txt | 102 -----------------------------------------------------------
+ 1 file changed, 102 deletions(-)
+
+commit effb690da5e49a1e9d94f3bc3a1b6262d930ec2e
+Author: Tapani Vaskisalo <tapani.vaskisalo@outlook.com>
+Date:   Mon Mar 16 14:57:44 2020 +0200
+
+    muutettiin tiedoston nimeksi eka
+
+ eka.txt | 102 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 102 insertions(+)
+
+commit 275e8d36544516fbae07456549eb3996df9b99de
+Author: Tapani Vaskisalo <tapani.vaskisalo@outlook.com>
+Date:   Mon Mar 16 14:56:15 2020 +0200
+
+    toinen poistettiin
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 6251df7d60058c74fdac2b87e3ae529df9160679
+Author: Tapani Vaskisalo <tapani.vaskisalo@outlook.com>
+Date:   Mon Mar 16 14:52:59 2020 +0200
+
+    poistettiin ja lisättiin tekstiä
+
+ tiedosto.txt | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit ff7a3c6898ec498c89ecdff11f45164130907c7d
+Author: Tapani Vaskisalo <tapani.vaskisalo@outlook.com>
+Date:   Mon Mar 16 14:52:06 2020 +0200
+
+    lisättiin tekstiä
+
+ tiedosto.txt | 102 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 102 insertions(+)
+
+commit ebf2e2874fff8ab68490d0d334d26cef3abce112
+Author: Tapani Vaskisalo <tapani.vaskisalo@outlook.com>
+Date:   Mon Mar 16 14:45:40 2020 +0200
+
+    hakemist stuff lisättiin
+
+ stuff/jokin.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 4f9b84121739c069dd8e15152878b383168c6a1f
+Author: Tapani Vaskisalo <tapani.vaskisalo@outlook.com>
+Date:   Mon Mar 16 14:44:14 2020 +0200
+
+    Toinen ja kolmas muutettiin
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit d16fd7aef8ba62680dfb747ea5c0a1adb61a775d
+Author: Tapani Vaskisalo <tapani.vaskisalo@outlook.com>
+Date:   Mon Mar 16 14:42:55 2020 +0200
+
+    kolmas lisättiin
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit c94e64f04e73abc1385e0eca9c2fe5bad93dbb7d
+Author: Tapani Vaskisalo <tapani.vaskisalo@outlook.com>
+Date:   Mon Mar 16 14:39:05 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 759b199bb38e57baa3373b0a8aef7c9f37e6c379
+Author: Tapani Vaskisalo <tapani.vaskisalo@outlook.com>
+Date:   Mon Mar 16 14:35:56 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
