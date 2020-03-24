@@ -1,7 +1,8 @@
 # Ohjelmistotekniikka
 ## Dokumentaatio
 [Vaatimusmäärittely](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
-[Tuntikirjanpito] (https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+
+[Tuntikirjanpito](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 ## Tehtävät
 
 ### Viikko 1
