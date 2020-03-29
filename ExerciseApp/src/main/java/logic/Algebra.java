@@ -5,25 +5,45 @@
  */
 package logic;
 
+import java.util.*;
+
 /**
  *
  * @author Tapan
  */
 public class Algebra implements Exercise {
+    private int a;
+    private int b;
+    private int correctAnswer;
+
+    public Algebra() {
+        Random r = new Random();
+        a=r.nextInt(101);
+        b=r.nextInt(101);
+        correctAnswer = a+b;
+    }
+    
+    
 
     @Override
-    public boolean checkAnswer(String answer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean checkAnswer(String answer){
+        int ans=Integer.valueOf(answer);
+        return ans==correctAnswer;
     }
 
     @Override
     public String generateQuestion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Random r = new Random();
+        a=r.nextInt(101);
+        b=r.nextInt(101);
+        correctAnswer = a+b;
+        return "Calculate " + a + " + " +b;
+        
     }
 
     @Override
     public String getCorrectAnswer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return String.valueOf(correctAnswer);
     }
     
     
