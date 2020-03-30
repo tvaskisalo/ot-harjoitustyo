@@ -14,7 +14,7 @@
             <goals>
                 <goal>compile</goal>
                 <goal>exec:java</goal>
-                <goal>-Dexec.mainClass=ExerciseApp.main</goal>
+                <goal>-Dexec.mainClass=ExerciseApp.Main</goal>
                 
             </goals>
         </action>
@@ -23,6 +23,15 @@
             <displayName>Test</displayName>
             <goals>
                 <goal>test</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-run</actionName>
+            <displayName>run</displayName>
+            <goals>
+                <goal>compile</goal>
+                <goal>exec:java</goal>
+                <goal>-Dexec.mainClass=ExerciseApp.ui.Main</goal>
             </goals>
         </action>
     </actions>

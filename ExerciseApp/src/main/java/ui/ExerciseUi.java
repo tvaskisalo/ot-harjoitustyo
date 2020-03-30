@@ -18,7 +18,20 @@ import logic.Algebra;
  * @author Tapan
  */
 public class ExerciseUi extends Application {
-    static String[] args;
+    
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        ExerciseUi ui = new ExerciseUi ();
+        System.out.println("[0] Text UI ");
+        System.out.println("[1] Graphical UI");
+        int choice = Integer.valueOf(scan.nextLine());
+        if(choice==1) {
+            ui.graphicalUI();
+        }
+        if(choice ==0) {
+            ui.textUI(scan);
+        }
+    }    
     
     @Override
     public void start(Stage primary) {
