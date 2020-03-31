@@ -3,11 +3,17 @@
 [Vaatimusmäärittely](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 [Tuntikirjanpito](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
-## Tehtävät
+## Komentorivitoimintoja
 
-### Viikko 1
-Tässä on *README* tiedosto, joka on hakemistossa **ot-harjoitustyo**
-[gitlog.txt](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
-[komentorivi.txt](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+Testit voidaan suorittaa komennolla 
 
+mvn test
+
+Testikattavuus komennolla
+
+mvn jacoco:report
+
+Suoritus komennolla
+
+mvn compile exec:java -Dexec.mainClass=exerciseapp.Main
 
