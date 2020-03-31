@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui;
+package exerciseapp.ui;
 
 import java.util.Scanner;
 import javafx.application.Application;
@@ -11,7 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import logic.Algebra;
+import exerciseapp.logic.Algebra;
 
 /**
  *

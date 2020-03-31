@@ -1,5 +1,7 @@
+package exerciseapp;
 
-import ui.ExerciseUi;
+
+import exerciseapp.ui.ExerciseUi;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

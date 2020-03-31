@@ -14,7 +14,7 @@
             <goals>
                 <goal>compile</goal>
                 <goal>exec:java</goal>
-                <goal>-Dexec.mainClass=ExerciseApp.Main</goal>
+                <goal>-Dexec.mainClass=exerciseapp.Main</goal>
                 
             </goals>
         </action>
@@ -31,7 +31,7 @@
             <goals>
                 <goal>compile</goal>
                 <goal>exec:java</goal>
-                <goal>-Dexec.mainClass=ExerciseApp.ui.Main</goal>
+                <goal>-Dexec.mainClass=exerciseapp.Main</goal>
             </goals>
         </action>
     </actions>

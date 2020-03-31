@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-import logic.Algebra;
+import exerciseapp.logic.Algebra;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
