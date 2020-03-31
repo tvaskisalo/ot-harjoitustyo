@@ -3,17 +3,18 @@
 [Vaatimusmäärittely](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 [Tuntikirjanpito](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+
 ## Komentorivitoimintoja
 
-Testit voidaan suorittaa komennolla 
+### Testit voidaan suorittaa komennolla 
 
 mvn test
 
-Testikattavuus komennolla
+### Testikattavuus komennolla
 
 mvn jacoco:report
 
-Suoritus komennolla
+### Suoritus komennolla
 
 mvn compile exec:java -Dexec.mainClass=exerciseapp.Main
 
