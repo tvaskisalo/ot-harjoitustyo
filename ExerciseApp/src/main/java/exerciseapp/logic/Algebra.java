@@ -17,26 +17,26 @@ public class Algebra implements Exercise {
 
     public Algebra() {
         Random r = new Random();
-        a=r.nextInt(101);
-        b=r.nextInt(101);
-        correctAnswer = a+b;
+        a = r.nextInt(101);
+        b = r.nextInt(101);
+        correctAnswer = a + b;
     }
     
     
 
     @Override
-    public boolean checkAnswer(String answer){
-        int ans=Integer.valueOf(answer);
-        return ans==correctAnswer;
+    public boolean checkAnswer(String answer) {
+        int ans = Integer.valueOf(answer);
+        return ans == correctAnswer;
     }
 
     @Override
     public String generateQuestion() {
         Random r = new Random();
-        a=r.nextInt(101);
-        b=r.nextInt(101);
-        correctAnswer = a+b;
-        return "Calculate " + a + " + " +b;
+        a = r.nextInt(101);
+        b = r.nextInt(101);
+        correctAnswer = a + b;
+        return "Calculate " + a + " + " + b;
         
     }
 

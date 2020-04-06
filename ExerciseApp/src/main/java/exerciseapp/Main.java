@@ -1,7 +1,7 @@
 package exerciseapp;
 
 
-import exerciseapp.ui.ExerciseUi;
+import exerciseapp.ui.Ui;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,6 +15,6 @@ import exerciseapp.ui.ExerciseUi;
  */
 public class Main {
     public static void main(String[] args) {
-        ExerciseUi.main(args);
+        Ui.main(args);
     }
 }

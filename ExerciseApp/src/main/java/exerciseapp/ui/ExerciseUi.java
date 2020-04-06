@@ -5,46 +5,32 @@
  */
 package exerciseapp.ui;
 
-import java.util.Scanner;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.stage.Stage;
-import exerciseapp.logic.Algebra;
+import exerciseapp.logic.Exercise;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 
 /**
  *
  * @author Tapan
  */
-public class ExerciseUi extends Application {
-    
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        ExerciseUi ui = new ExerciseUi ();
-        System.out.println("[0] Text UI ");
-        System.out.println("[1] Graphical UI");
-        int choice = Integer.valueOf(scan.nextLine());
-        if(choice==1) {
-            ui.graphicalUI();
-        }
-        if(choice ==0) {
-            ui.textUI(scan);
-        }
-    }    
-    
-    @Override
-    public void start(Stage primary) {
-        Algebra al = new Algebra();
+public class ExerciseUi {
+    private Exercise exercise;
+    private BorderPane background;
+
+    public ExerciseUi(Exercise exercise) {
+        this.exercise =exercise;
         Button checkButton = new Button("Check:");
         Button generate = new Button("Generate a new question");
         Button showAnswer = new Button("Show answer");
         TextField answerSpace = new TextField();
         Label feedback = new Label();
-        Label question = new Label(al.generateQuestion());
+        Label question = new Label(exercise.generateQuestion());
         
-        BorderPane background = new BorderPane();
-        background.setTop(new Label("Excercise app"));
+        background = new BorderPane();
+        background.setTop(new Label("Algebra Exercise"));
         GridPane grid = new GridPane();
         
         grid.add(generate, 0,0);
@@ -55,19 +41,19 @@ public class ExerciseUi extends Application {
         background.setCenter(grid);
         
         generate.setOnMouseClicked((event)-> {
-           question.setText(al.generateQuestion());
+           question.setText(exercise.generateQuestion());
            feedback.setText(" ");
            grid.getChildren().remove(showAnswer);
         });
         
         showAnswer.setOnMouseClicked((event)-> {
-            feedback.setText("Correct answer is: "+al.getCorrectAnswer());
+            feedback.setText("Correct answer is: "+exercise.getCorrectAnswer());
         });
         
         checkButton.setOnMouseClicked((event) -> {
             String answer = answerSpace.getText();
             answerSpace.clear();
-            if(al.checkAnswer(answer)) {
+            if(exercise.checkAnswer(answer)) {
                 feedback.setText("Correct!");
             } else {
                 feedback.setText("Wrong! ");
@@ -77,37 +63,9 @@ public class ExerciseUi extends Application {
             }
             
         });
-        
-        
-        primary.setScene(new Scene(background));
-        primary.show();
     }
-
-    
-    public void textUI(Scanner scan) {
-        while(true){
-            System.out.println("[1] Begin excercise");
-            System.out.println("[0] Quit");
-            int command = Integer.valueOf(scan.nextLine());
-            if(command==0) {
-                break;
-            }
-            if(command==1) {
-                Algebra al = new Algebra();
-                System.out.println(al.generateQuestion());
-                String answer = scan.nextLine();
-                boolean correct =al.checkAnswer(answer);
-                if(correct) {
-                System.out.println("Good work!");
-                } else {
-                System.out.println("Wrong! Correct answer is:" +al.getCorrectAnswer());
-                }
-            }
-        }
-        System.out.println("Goodbye!");
+    public BorderPane getScene() {
+        return background;
     }
     
-    public void graphicalUI() {
-        launch();
-    }
 }
