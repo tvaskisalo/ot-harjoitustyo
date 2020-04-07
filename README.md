@@ -4,6 +4,8 @@
 
 [Tuntikirjanpito](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
+[Arkkitehtuurikuvaus](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
 ## Komentorivitoimintoja
 
 ### Testit voidaan suorittaa komennolla 
