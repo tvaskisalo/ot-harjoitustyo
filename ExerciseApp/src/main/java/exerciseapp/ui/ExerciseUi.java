@@ -5,6 +5,7 @@
  */
 package exerciseapp.ui;
 
+import exerciseapp.dao.DataBase;
 import exerciseapp.logic.Exercise;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,7 +21,7 @@ public class ExerciseUi {
     private Exercise exercise;
     private BorderPane background;
 
-    public ExerciseUi(Exercise exercise) {
+    public ExerciseUi(Exercise exercise, DataBase db) {
         this.exercise =exercise;
         Button checkButton = new Button("Check:");
         Button generate = new Button("Generate a new question");
@@ -30,7 +31,7 @@ public class ExerciseUi {
         Label question = new Label(exercise.generateQuestion());
         
         background = new BorderPane();
-        background.setTop(new Label("Algebra Exercise"));
+        background.setTop(new Label("Exercise"));
         GridPane grid = new GridPane();
         
         grid.add(generate, 0,0);
@@ -55,6 +56,7 @@ public class ExerciseUi {
             answerSpace.clear();
             if(exercise.checkAnswer(answer)) {
                 feedback.setText("Correct!");
+                db.addPoints();
             } else {
                 feedback.setText("Wrong! ");
             }

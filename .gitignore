@@ -5,3 +5,4 @@
 /ExerciseApp/target/
 /ExerciseApp/nbproject/
 /ExerciseApp/nbactions.xml
+/ExerciseApp/src/main/java/exerciseapp/dao/userdata.db

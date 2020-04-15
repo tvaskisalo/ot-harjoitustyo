@@ -5,6 +5,7 @@
  */
 package exerciseapp.ui;
 
+import exerciseapp.dao.DataBase;
 import java.util.Scanner;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -27,16 +28,38 @@ public class Ui extends Application {
         System.out.println("[1] Graphical UI");
         int choice = Integer.valueOf(scan.nextLine());
         if(choice==1) {
-            ui.graphicalUI();
+            launch();
         }
         if(choice ==0) {
             ui.textUI(scan);
         }
+        
+        
     }    
     
     @Override
     public void start(Stage primary) {
         BorderPane start = new BorderPane();
+        DataBase db = new DataBase();
+        
+        GridPane user = new GridPane();
+        Label instruction = new Label("Give a username: ");
+        TextField name = new TextField();
+        Button confirm = new Button("Confirm username");
+        
+        user.add(instruction, 0, 0);
+        user.add(name, 0, 1);
+        user.add(confirm, 0, 2);
+        
+        GridPane userInfo = new GridPane();
+        Label username = new Label();
+        Label points = new Label();
+        Label percent = new Label();
+        
+        userInfo.add(username, 0, 0);
+        userInfo.add(points, 1, 0);
+        userInfo.add(percent, 2, 0);
+        userInfo.setHgap(15);
         
         Label header = new Label("Select an exercise:");
         GridPane menu = new GridPane();
@@ -48,16 +71,28 @@ public class Ui extends Application {
         menu.add(header, 0, 0);
         menu.add(algebra, 0, 1);
         menu.add(functions, 1, 1);
-        start.setTop(mainMenu);
-        start.setCenter(menu);
+        
+        start.setCenter(user);
         primary.setScene(new Scene(start));
         primary.setTitle("ExerciseApp");
         primary.setMinHeight(250);
         primary.setMinWidth(250);
         primary.show();
         
+        confirm.setOnMouseClicked((event) -> {
+            String alias = name.getText();
+            db.setUsername(alias);
+            db.createUser();
+            username.setText(alias);
+            points.setText("Points: " + db.getPoints());
+            percent.setText("Success rate: ");
+            start.setTop(mainMenu);
+            start.setCenter(menu);
+            start.setBottom(userInfo);
+        });
+        
         algebra.setOnMouseClicked((event) -> {
-            ExerciseUi algebraExercise = new ExerciseUi(new Algebra());
+            ExerciseUi algebraExercise = new ExerciseUi(new Algebra(), db);
             start.setCenter(algebraExercise.getScene());
         });
         
@@ -65,7 +100,7 @@ public class Ui extends Application {
             start.setCenter(menu);
         });
         functions.setOnMouseClicked((event)->{
-            ExerciseUi functionExercise = new ExerciseUi(new Function());
+            ExerciseUi functionExercise = new ExerciseUi(new Function(), db);
             start.setCenter(functionExercise.getScene());
         });
         
@@ -108,14 +143,8 @@ public class Ui extends Application {
                 }
                 }
                 
-                
             }
         }
         System.out.println("Goodbye!");
     }
-    
-    public void graphicalUI() {
-        launch();
-    }
-    
 }
