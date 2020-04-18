@@ -21,7 +21,7 @@ public class ExerciseUi {
     private Exercise exercise;
     private BorderPane background;
 
-    public ExerciseUi(Exercise exercise, DataBase db) {
+    public ExerciseUi(Exercise exercise, DataBase db, Label points, Label percent) {
         this.exercise =exercise;
         Button checkButton = new Button("Check:");
         Button generate = new Button("Generate a new question");
@@ -54,16 +54,22 @@ public class ExerciseUi {
         checkButton.setOnMouseClicked((event) -> {
             String answer = answerSpace.getText();
             answerSpace.clear();
+            db.increaseExerciseCount();
             if(exercise.checkAnswer(answer)) {
                 feedback.setText("Correct!");
                 db.addPoints();
+                points.setText("Points: " + db.getPoints());
             } else {
                 feedback.setText("Wrong! ");
             }
             if(!grid.getChildren().contains(showAnswer)){
                 grid.add(showAnswer, 1, 3);
             }
-            
+            if(db.getExerciseCount()==0) {
+                percent.setText("Success rate: 0%"); 
+            } else {
+                percent.setText("Success rate: "+((db.getPoints()*100)/db.getExerciseCount())+ "%");
+            }
         });
     }
     public BorderPane getScene() {

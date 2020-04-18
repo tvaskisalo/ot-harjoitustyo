@@ -66,10 +66,31 @@ public class DataBase {
         }
     }
     
-    public double getPercent() {
+    public int getExerciseCount() {
+        try {
+            PreparedStatement ps = conn.prepareStatement("SELECT exercises FROM Users WHERE username=?");
+            ps.setString(1, username);
+            ResultSet r = ps.executeQuery();
+            int count = r.getInt("exercises");
+            ps.close();
+            return count;
+        } catch(Exception e) {
+
+        }
         return 0;
     }
     
-    
+    public void increaseExerciseCount() {
+        int count = getExerciseCount();
+        try {
+            PreparedStatement ps = conn.prepareStatement("UPDATE Users SET exercises=? WHERE username=?");
+            ps.setInt(1, count+1);
+            ps.setString(2, username);
+            ps.execute();
+            ps.close();
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
 }

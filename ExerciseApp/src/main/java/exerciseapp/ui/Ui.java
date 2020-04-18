@@ -85,14 +85,18 @@ public class Ui extends Application {
             db.createUser();
             username.setText(alias);
             points.setText("Points: " + db.getPoints());
-            percent.setText("Success rate: ");
+            if(db.getExerciseCount()==0) {
+                percent.setText("Success rate: 0"); 
+            } else {
+                percent.setText("Success rate: "+((db.getPoints()*100)/db.getExerciseCount())+ "%");
+            }
             start.setTop(mainMenu);
             start.setCenter(menu);
             start.setBottom(userInfo);
         });
         
         algebra.setOnMouseClicked((event) -> {
-            ExerciseUi algebraExercise = new ExerciseUi(new Algebra(), db);
+            ExerciseUi algebraExercise = new ExerciseUi(new Algebra(), db, points, percent);
             start.setCenter(algebraExercise.getScene());
         });
         
@@ -100,7 +104,7 @@ public class Ui extends Application {
             start.setCenter(menu);
         });
         functions.setOnMouseClicked((event)->{
-            ExerciseUi functionExercise = new ExerciseUi(new Function(), db);
+            ExerciseUi functionExercise = new ExerciseUi(new Function(), db, points, percent);
             start.setCenter(functionExercise.getScene());
         });
         
