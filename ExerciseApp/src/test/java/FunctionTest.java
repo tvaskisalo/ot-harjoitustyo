@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 
+import exerciseapp.logic.Function;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,29 +15,61 @@ import static org.junit.Assert.*;
  * @author Tapan
  */
 public class FunctionTest {
-    
-    public FunctionTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    private Function function;
     
     @Before
     public void setUp() {
+        function = new Function();
     }
     
-    @After
-    public void tearDown() {
+    @Test
+    public void functionQuestionsHaveCorrectAnswers() {
+        boolean correct = true;
+        for(int i=0; i<1000; i++) {
+            function.generateQuestion();
+            int a = function.getA();
+            int b = function.getB();
+            int c = function.getC();
+            int x = function.getX();
+            int answer = Integer.valueOf(function.getCorrectAnswer());
+            if(a * x * x + b * x + c != answer) {
+                correct = false;
+            }
+        }
+        assertEquals(correct, true);
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
+    @Test
+    public void correctAnswerReturnsTrue() {
+        boolean correct = true; 
+        for(int i=0; i<1000; i++) {
+            function.generateQuestion();
+            int a = function.getA();
+            int b = function.getB();
+            int c = function.getC();
+            int x = function.getX();
+            int answer = Integer.valueOf(function.getCorrectAnswer());
+            if(!function.checkAnswer(String.valueOf(a * x * x + b * x + c))) {
+                correct = false;
+            }
+        }
+        assertEquals(correct, true);
+    }
+    
+    @Test
+    public void incorrectAnswerReturnsFalse() {
+        boolean correct = true; 
+        for(int i=0; i<1000; i++) {
+            function.generateQuestion();
+            int a = function.getA();
+            int b = function.getB();
+            int c = function.getC();
+            int x = function.getX();
+            int answer = Integer.valueOf(function.getCorrectAnswer());
+            if(function.checkAnswer(String.valueOf(a * x * x + b * x + c -1))) {
+                correct = false;
+            }
+        }
+        assertEquals(correct, true);
+    }
 }

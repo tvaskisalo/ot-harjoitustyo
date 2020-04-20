@@ -65,5 +65,21 @@ public class Function implements Exercise {
     public String getCorrectAnswer() {
         return String.valueOf(answer);
     }
+
+    public int getA() {
+        return a;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public int getC() {
+        return c;
+    }
+
+    public int getX() {
+        return x;
+    }
     
 }

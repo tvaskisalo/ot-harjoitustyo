@@ -17,10 +17,10 @@ public class DataBase {
 
     public DataBase() {
         try {
-            conn = DriverManager.getConnection("jdbc:sqlite:src/main/java/exerciseapp/dao/userdata.db");
+            conn = DriverManager.getConnection("jdbc:sqlite:userdata.db");
             Statement s = conn.createStatement();
             s.execute("CREATE TABLE Users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, exercises INTEGER, correct INTEGER)");
-        } catch(Exception e) {
+        } catch (Exception e) {
         }
     }
     
@@ -34,7 +34,7 @@ public class DataBase {
             ps.setString(1, username);
             ps.execute();
             ps.close();
-        } catch(Exception e) {
+        } catch (Exception e) {
             
         }
     }
@@ -47,7 +47,7 @@ public class DataBase {
             int points = r.getInt("correct");
             ps.close();
             return points;
-        } catch(Exception e) {
+        } catch (Exception e) {
 
         }
         return 0;
@@ -57,11 +57,11 @@ public class DataBase {
         int points = getPoints();
         try {
             PreparedStatement ps = conn.prepareStatement("UPDATE Users SET correct=? WHERE username=?");
-            ps.setInt(1, points+1);
+            ps.setInt(1, points + 1);
             ps.setString(2, username);
             ps.execute();
             ps.close();
-        } catch(Exception e) {
+        } catch (Exception e) {
 
         }
     }
@@ -74,7 +74,7 @@ public class DataBase {
             int count = r.getInt("exercises");
             ps.close();
             return count;
-        } catch(Exception e) {
+        } catch (Exception e) {
 
         }
         return 0;
@@ -84,11 +84,11 @@ public class DataBase {
         int count = getExerciseCount();
         try {
             PreparedStatement ps = conn.prepareStatement("UPDATE Users SET exercises=? WHERE username=?");
-            ps.setInt(1, count+1);
+            ps.setInt(1, count + 1);
             ps.setString(2, username);
             ps.execute();
             ps.close();
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
