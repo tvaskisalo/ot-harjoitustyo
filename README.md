@@ -14,7 +14,7 @@ mvn test
 
 ### Testikattavuus komennolla
 
-mvn jacoco:report
+mvn test jacoco:report
 
 ### Suoritus komennolla
 
