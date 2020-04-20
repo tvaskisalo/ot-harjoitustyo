@@ -6,7 +6,9 @@
 
 import exerciseapp.logic.Function;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -40,7 +42,7 @@ public class FunctionTest {
     }
     
     @Test
-    public void correctAnswerReturnsTrue() {
+    public void functionCorrectAnswerReturnsTrue() {
         boolean correct = true; 
         for(int i=0; i<1000; i++) {
             function.generateQuestion();
@@ -57,7 +59,7 @@ public class FunctionTest {
     }
     
     @Test
-    public void incorrectAnswerReturnsFalse() {
+    public void functionIncorrectAnswerReturnsFalse() {
         boolean correct = true; 
         for(int i=0; i<1000; i++) {
             function.generateQuestion();
