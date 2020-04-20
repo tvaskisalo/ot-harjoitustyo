@@ -8,4 +8,5 @@
 31.3 |1| Fixailtiin ohjelmointivirheitä ja saatiin sovellus toimimaan muilla kuin omalla koneella
 6.4 |4.5| Lisättiin uusi harjoitus, muutettiitiin luokkia ja lisättiin checkstyle
 15.4 |3| Lisättiin ominaisuuksia käyttäjien pisteiden lisäämiseen ja tallentamiseen
-yht |15|
+18.4 |1| Lisättiin teksti, joka kertoo pisteet ja onnistumisprosentin
+yht |16|
