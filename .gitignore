@@ -1,8 +1,8 @@
-
 /laskarit/viikko2/Maksukortti/target/
 /laskarit/viikko2/Unicafe/target/
 /laskarit/viikko2/Unicafe/nbproject/
 /ExerciseApp/target/
 /ExerciseApp/nbproject/
 /ExerciseApp/nbactions.xml
-/ExerciseApp/src/main/java/exerciseapp/dao/userdata.db
+/ExerciseApp/userdata.db
+
