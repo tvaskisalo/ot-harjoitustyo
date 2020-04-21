@@ -20,10 +20,10 @@ mvn test jacoco:report
 
 mvn compile exec:java -Dexec.mainClass=exerciseapp.Main
 
-## Jar:in generointi
+### Jar:in generointi
 
 mvn package
 
-## Checkstylen generointi
+### Checkstylen generointi
 
 jxr:jxr checkstyle:checkstyle
