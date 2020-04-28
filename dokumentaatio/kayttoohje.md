@@ -35,18 +35,22 @@ Yläkulmassa olevasta napista "Main menu" pääset takaisin tehtäväsarjojen va
 Käytän tässä esimerkkinä tehtäväsarjan Algebra tehtävää, mutta ohje toimii kaikille tehtäväsarjoille.
 
 Kun valitset tehtäväsarjan pääset näkymään, joka näyttää suunnilleen seuraavalta:
+
 ![Tehtavanteko](https://user-images.githubusercontent.com/61991314/80472693-c0e5e380-894d-11ea-8e5b-ee9a70967f69.PNG)
 
 
 Näkymässä on annettu kysymys, vastauslaatikkoa ja kaksi nappia. Nappi "Check answer" tarkistaa onko tehtävän vastaus oikein vai ei.
 Jos vastaus on oikein, ohjelma antaa pisteen.
+
 ![oikein](https://user-images.githubusercontent.com/61991314/80472715-c5aa9780-894d-11ea-9a95-8761c7abcfa7.PNG)
 
 Jos vastaus on väärin, ohjelma ilmoittaa että vastaus on väärin. Voit kuitenkin koittaa vastata tehtävään uudelleen.
+
 ![vaarin](https://user-images.githubusercontent.com/61991314/80472723-c9d6b500-894d-11ea-9bbf-47f9da17f0c1.PNG)
 
 Kun olet vastannut tehtävään kerran (ei väliä oliko vastaus oikein vai väärin) voit painaa nappia "show answer", josta näät oikean vastuksen. 
 Kuitenkin et voi enää nappia painettua vastata kysymykseen.
+
 ![show](https://user-images.githubusercontent.com/61991314/80472749-d2c78680-894d-11ea-80bc-202b806c8562.PNG)
 
 Jos haluat tehdä lisää tehtäviä, voit painaa napista "Generate a new question", jolloin ohjelma generoi uuden tehtävän.
