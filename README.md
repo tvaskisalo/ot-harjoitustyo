@@ -4,7 +4,7 @@
 
 [Tuntikirjanpito](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
-[Arkkitehtuurikuvaus](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+[Arkkitehtuurikuvaus](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
 [Käyttöohje](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
