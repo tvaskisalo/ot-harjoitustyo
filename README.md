@@ -14,16 +14,16 @@ mvn test
 
 ### Testikattavuus komennolla
 
-mvn jacoco:report
+mvn test jacoco:report
 
 ### Suoritus komennolla
 
 mvn compile exec:java -Dexec.mainClass=exerciseapp.Main
 
-## Jar:in generointi
+### Jar:in generointi
 
 mvn package
 
-## Checkstylen generointi
+### Checkstylen generointi
 
 jxr:jxr checkstyle:checkstyle

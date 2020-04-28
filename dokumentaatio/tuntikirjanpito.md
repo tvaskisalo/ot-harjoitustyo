@@ -9,4 +9,6 @@
 6.4 |4.5| Lisättiin uusi harjoitus, muutettiitiin luokkia ja lisättiin checkstyle
 15.4 |3| Lisättiin ominaisuuksia käyttäjien pisteiden lisäämiseen ja tallentamiseen
 18.4 |1| Lisättiin teksti, joka kertoo pisteet ja onnistumisprosentin
-yht |16|
+20.4 |3| Lisättiin jar-generointi ja korjailtiin virheitä ym
+21.4 |1| Kasvatettiin testikattavuutta
+yht |20|
