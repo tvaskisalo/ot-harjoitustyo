@@ -29,3 +29,7 @@ mvn package
 ### Checkstylen generointi
 
 jxr:jxr checkstyle:checkstyle
+
+### Javadocin generointi
+
+mvn javadoc:javadoc
