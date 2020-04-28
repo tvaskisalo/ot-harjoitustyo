@@ -31,7 +31,7 @@ public class Algebra implements Exercise {
      */
 
     @Override
-    public boolean checkAnswer(String answer) throws NumberFormatException{
+    public boolean checkAnswer(String answer) throws NumberFormatException {
         int ans = Integer.parseInt(answer);
         return ans == correctAnswer;
     }

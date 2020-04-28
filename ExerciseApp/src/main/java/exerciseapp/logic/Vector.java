@@ -11,7 +11,7 @@ import java.util.Random;
  *  Luokka tarjoaa tehtäviä, joissa lasketaan eri vektoreiden pistetuloja
  * 
  */
-public class Vector implements Exercise{
+public class Vector implements Exercise {
     private int a;
     private int b;
     private int c;
@@ -27,7 +27,7 @@ public class Vector implements Exercise{
      */
     @Override
     public boolean checkAnswer(String answer) throws NumberFormatException {
-        return Integer.parseInt(answer)==this.answer;
+        return Integer.parseInt(answer) == this.answer;
     }
 
     /**
@@ -41,7 +41,7 @@ public class Vector implements Exercise{
         b = -5 + r.nextInt(11);
         c = -5 + r.nextInt(11);
         d = -5 + r.nextInt(11);
-        answer = a*c + b*d;
+        answer = a * c + b * d;
         return "Calculate the scalar product of (" + a + "," + b + ") and (" + c + "," + d + ").";
     }
 
