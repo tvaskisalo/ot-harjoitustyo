@@ -40,7 +40,7 @@ public class AlgebraTest {
     }
     
     @Test 
-    public void incorrectAnswerReturnsFalse() {
+    public void algebraIncorrectAnswerReturnsFalse() {
         int sumA =0;
         int sumB=0;
         String[] strings = al.generateQuestion().split(" ");
@@ -51,7 +51,7 @@ public class AlgebraTest {
     }
     
     @Test
-    public void correctAnswerReturnsTrue() {
+    public void algebraCorrectAnswerReturnsTrue() {
         int sumA =0;
         int sumB=0;
         String[] strings = al.generateQuestion().split(" ");

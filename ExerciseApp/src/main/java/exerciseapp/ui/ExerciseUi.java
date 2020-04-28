@@ -18,8 +18,8 @@ import javafx.scene.layout.GridPane;
  * @author Tapan
  */
 public class ExerciseUi {
-    private Exercise exercise;
-    private BorderPane background;
+    private final Exercise exercise;
+    private final BorderPane background;
 
     public ExerciseUi(Exercise exercise, DataBase db, Label points, Label percent) {
         this.exercise =exercise;
@@ -45,31 +45,38 @@ public class ExerciseUi {
            question.setText(exercise.generateQuestion());
            feedback.setText(" ");
            grid.getChildren().remove(showAnswer);
+           answerSpace.setDisable(false);
         });
         
         showAnswer.setOnMouseClicked((event)-> {
             feedback.setText("Correct answer is: "+exercise.getCorrectAnswer());
+            answerSpace.setDisable(true);
         });
         
         checkButton.setOnMouseClicked((event) -> {
             String answer = answerSpace.getText();
             answerSpace.clear();
-            db.increaseExerciseCount();
-            if(exercise.checkAnswer(answer)) {
+            try {
+                Boolean check=exercise.checkAnswer(answer);
+                db.increaseExerciseCount();
+                if(check) {
                 feedback.setText("Correct!");
                 db.addPoints();
                 points.setText("Points: " + db.getPoints());
-            } else {
-                feedback.setText("Wrong! ");
-            }
-            if(!grid.getChildren().contains(showAnswer)){
-                grid.add(showAnswer, 1, 3);
-            }
-            if(db.getExerciseCount()==0) {
-                percent.setText("Success rate: 0%"); 
-            } else {
-                percent.setText("Success rate: "+((db.getPoints()*100)/db.getExerciseCount())+ "%");
-            }
+                } else {
+                    feedback.setText("Wrong! ");
+                }
+                if(!grid.getChildren().contains(showAnswer)){
+                    grid.add(showAnswer, 1, 3);
+                }
+                if(db.getExerciseCount()==0) {
+                    percent.setText("Success rate: 0%"); 
+                } else {
+                    percent.setText("Success rate: "+((db.getPoints()*100)/db.getExerciseCount())+ "%");
+                }
+            } catch(Exception e) {
+                feedback.setText("Please input numbers only");
+            } 
         });
     }
     public BorderPane getScene() {

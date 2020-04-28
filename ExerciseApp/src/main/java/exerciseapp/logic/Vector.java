@@ -4,23 +4,19 @@
  * and open the template in the editor.
  */
 package exerciseapp.logic;
-import java.util.*;
+
+import java.util.Random;
 
 /**
+ *  Luokka tarjoaa tehtäviä, joissa lasketaan eri vektoreiden pistetuloja
  * 
- * Luokka tarjoaa tehtäviä, joissa lasketaan eri yhteenlaskuja
  */
-public class Algebra implements Exercise {
+public class Vector implements Exercise{
     private int a;
     private int b;
-    private int correctAnswer;
-
-    public Algebra() {
-        Random r = new Random();
-        a = r.nextInt(101);
-        b = r.nextInt(101);
-        correctAnswer = a + b;
-    }
+    private int c;
+    private int d;
+    private int answer;
     
     /**
      * Metodi tarkistaa käyttäjän antaman vastauksen viimeksi generoituun kysymykseen.
@@ -29,11 +25,9 @@ public class Algebra implements Exercise {
      * @return Oliko vastaus oikein vaiko ei
      * @throws NumberFormatException Jos annettu vastaus ei ole numero
      */
-
     @Override
-    public boolean checkAnswer(String answer) throws NumberFormatException{
-        int ans = Integer.parseInt(answer);
-        return ans == correctAnswer;
+    public boolean checkAnswer(String answer) throws NumberFormatException {
+        return Integer.parseInt(answer)==this.answer;
     }
 
     /**
@@ -43,21 +37,37 @@ public class Algebra implements Exercise {
     @Override
     public String generateQuestion() {
         Random r = new Random();
-        a = r.nextInt(101);
-        b = r.nextInt(101);
-        correctAnswer = a + b;
-        return "Calculate " + a + " + " + b;
-        
+        a = -5 + r.nextInt(11);
+        b = -5 + r.nextInt(11);
+        c = -5 + r.nextInt(11);
+        d = -5 + r.nextInt(11);
+        answer = a*c + b*d;
+        return "Calculate the scalar product of (" + a + "," + b + ") and (" + c + "," + d + ").";
     }
-    
+
     /**
      * Metodi palauttaa viimeksi generoidun kysymyksen vastauksen.
      * @return  Oikea vastaus
      */
     @Override
     public String getCorrectAnswer() {
-        return String.valueOf(correctAnswer);
+        return String.valueOf(answer);
     }
-    
+
+    public int getA() {
+        return a;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public int getC() {
+        return c;
+    }
+
+    public int getD() {
+        return d;
+    }
     
 }

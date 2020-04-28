@@ -8,8 +8,8 @@ package exerciseapp.dao;
 import java.sql.*;
 
 /**
- *
- * @author Tapan
+ *  Luokalla voidaan luoda SQLite tietokanta, johon tallennetaan käyttäjiä, niiden pisteitä ja määriä niiden tehdyistä tehtävistä
+ * 
  */
 public class DataBase {
     private String username;
@@ -24,10 +24,17 @@ public class DataBase {
         }
     }
     
+    /**
+     * Metodi asettaa käyttäjänimen, jolla haetaan ja muutetaan tietokannasta dataa
+     * @param username Käyttäjän antama käyttäjänimi 
+     */
     public void setUsername(String username) {
         this.username = username;
     }
     
+    /**
+     * Metodi luo uuden käyttäjän tietokantaan
+     */
     public void createUser() {
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO Users (username, exercises, correct) VALUES (?,0,0)");
@@ -39,6 +46,10 @@ public class DataBase {
         }
     }
     
+    /**
+     * Metodi hakee tietokannasta jo asetetun käyttäjän pisteet.
+     * @return Käyttäjän pisteet
+     */
     public int getPoints() {
         try {
             PreparedStatement ps = conn.prepareStatement("SELECT correct FROM Users WHERE username=?");
@@ -53,6 +64,9 @@ public class DataBase {
         return 0;
     }
     
+    /**
+     * Metodi kasvattaa yhdellä käyttäjän pisteitä tietokannassa
+     */
     public void addPoints() {
         int points = getPoints();
         try {
@@ -66,6 +80,10 @@ public class DataBase {
         }
     }
     
+    /**
+     * Metodi palauttaa, kuinka monta tehtävää käyttäjä on tehnyt
+     * @return  Käyttäjän tehtyjen tehtävien määrä
+     */
     public int getExerciseCount() {
         try {
             PreparedStatement ps = conn.prepareStatement("SELECT exercises FROM Users WHERE username=?");
@@ -80,6 +98,9 @@ public class DataBase {
         return 0;
     }
     
+    /**
+     * Metodi kasvattaa yhdellä tehtyjen tehtävien määrää.
+     */
     public void increaseExerciseCount() {
         int count = getExerciseCount();
         try {

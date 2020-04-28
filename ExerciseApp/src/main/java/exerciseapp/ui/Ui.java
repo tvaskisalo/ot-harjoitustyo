@@ -14,6 +14,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import exerciseapp.logic.Algebra;
 import exerciseapp.logic.Function;
+import exerciseapp.logic.Vector;
 
 /**
  *
@@ -69,43 +70,54 @@ public class Ui extends Application {
         Button vectors = new Button("Vectors");
         
         menu.add(header, 0, 0);
-        menu.add(algebra, 0, 1);
-        menu.add(functions, 1, 1);
+        menu.add(algebra, 1, 1);
+        menu.add(functions, 2, 1);
+        menu.add(vectors, 3, 1);
+
         
         start.setCenter(user);
         primary.setScene(new Scene(start));
         primary.setTitle("ExerciseApp");
-        primary.setMinHeight(250);
-        primary.setMinWidth(250);
+        primary.setMinHeight(350);
+        primary.setMinWidth(350);
         primary.show();
         
         confirm.setOnMouseClicked((event) -> {
             String alias = name.getText();
-            db.setUsername(alias);
-            db.createUser();
-            username.setText(alias);
-            points.setText("Points: " + db.getPoints());
-            if(db.getExerciseCount()==0) {
-                percent.setText("Success rate: 0"); 
+            if(alias.trim().equals("")) {
+                user.add(new Label("Username is invalid"), 3, 0);
             } else {
-                percent.setText("Success rate: "+((db.getPoints()*100)/db.getExerciseCount())+ "%");
+                db.setUsername(alias);
+                db.createUser();
+                username.setText(alias);
+                points.setText("Points: " + db.getPoints());
+                if(db.getExerciseCount()==0) {
+                    percent.setText("Success rate: 0"); 
+                } else {
+                    percent.setText("Success rate: "+((db.getPoints()*100)/db.getExerciseCount())+ "%");
+                }
+                start.setTop(mainMenu);
+                start.setCenter(menu);
+                start.setBottom(userInfo);
             }
-            start.setTop(mainMenu);
-            start.setCenter(menu);
-            start.setBottom(userInfo);
         });
         
         algebra.setOnMouseClicked((event) -> {
             ExerciseUi algebraExercise = new ExerciseUi(new Algebra(), db, points, percent);
             start.setCenter(algebraExercise.getScene());
         });
-        
-        mainMenu.setOnMouseClicked((event) -> {
-            start.setCenter(menu);
+        vectors.setOnMouseClicked((event)-> {
+            ExerciseUi vectorExercise = new ExerciseUi(new Vector(), db, points, percent);
+            start.setCenter(vectorExercise.getScene());
         });
+        
         functions.setOnMouseClicked((event)->{
             ExerciseUi functionExercise = new ExerciseUi(new Function(), db, points, percent);
             start.setCenter(functionExercise.getScene());
+        });
+        
+        mainMenu.setOnMouseClicked((event) -> {
+            start.setCenter(menu);
         });
         
         
@@ -126,27 +138,26 @@ public class Ui extends Application {
                 command = Integer.valueOf(scan.nextLine());
                 if(command==1) {
                     Algebra al = new Algebra();
-                System.out.println(al.generateQuestion());
-                String answer = scan.nextLine();
-                boolean correct =al.checkAnswer(answer);
-                if(correct) {
-                System.out.println("Good work!");
-                } else {
-                System.out.println("Wrong! Correct answer is:" +al.getCorrectAnswer());
-                }
+                    System.out.println(al.generateQuestion());
+                    String answer = scan.nextLine();
+                    boolean correct =al.checkAnswer(answer);
+                    if(correct) {
+                        System.out.println("Good work!");
+                    } else {
+                        System.out.println("Wrong! Correct answer is:" +al.getCorrectAnswer());
+                    }
                 }
                 if(command ==0) {
-                Function fu = new Function();
-                System.out.println(fu.generateQuestion());
-                String answer = scan.nextLine();
-                boolean correct =fu.checkAnswer(answer);
-                if(correct) {
-                System.out.println("Good work!");
-                } else {
-                System.out.println("Wrong! Correct answer is:" +fu.getCorrectAnswer());
-                }
-                }
-                
+                    Function fu = new Function();
+                    System.out.println(fu.generateQuestion());
+                    String answer = scan.nextLine();
+                    boolean correct =fu.checkAnswer(answer);
+                    if(correct) {
+                        System.out.println("Good work!");
+                    } else {
+                    System.out.println("Wrong! Correct answer is:" +fu.getCorrectAnswer());
+                    }
+                } 
             }
         }
         System.out.println("Goodbye!");

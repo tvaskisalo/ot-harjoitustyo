@@ -8,8 +8,8 @@ package exerciseapp.logic;
 import java.util.Random;
 
 /**
- *
- * @author Tapan
+ * Luokka tarjoaa tehtäviä, joissa lasketaan eri funktoiden arvoja eri kohdissa
+ * 
  */
 public class Function implements Exercise {
     private int a;
@@ -18,20 +18,22 @@ public class Function implements Exercise {
     private int x;
     private int answer;
 
-    public Function() {
-        a = 0;
-        b = 0;
-        c = 0;
-        answer = 0;
-    }
-
-    
+    /**
+     * Metodi tarkistaa käyttäjän antaman vastauksen viimeksi generoituun kysymykseen.
+     * 
+     * @param answer Käyttäjän antama vastaus
+     * @return Oliko vastaus oikein vaiko ei
+     * @throws NumberFormatException Jos annettu vastaus ei ole numero
+     */
     @Override
-    public boolean checkAnswer(String answer) {
-        return Integer.valueOf(answer) == this.answer;
+    public boolean checkAnswer(String answer) throws NumberFormatException {
+        return Integer.parseInt(answer) == this.answer;
     }
     
-    
+    /**
+     * Metodi Generoi uuden kysymyksen
+     * @return Generoitu kysymys
+     */
     @Override
     public String generateQuestion() {
         StringBuilder function = new StringBuilder("f(x)=");
@@ -61,6 +63,10 @@ public class Function implements Exercise {
         return function.toString();
     }
 
+    /**
+     * Metodi palauttaa viimeksi generoidun kysymyksen vastauksen.
+     * @return  Oikea vastaus
+     */
     @Override
     public String getCorrectAnswer() {
         return String.valueOf(answer);
