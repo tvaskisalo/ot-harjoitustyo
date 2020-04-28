@@ -6,6 +6,8 @@
 
 [Arkkitehtuurikuvaus](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
+[Käyttöohje](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+
 ## Komentorivitoimintoja
 
 ### Testit voidaan suorittaa komennolla 
@@ -27,3 +29,7 @@ mvn package
 ### Checkstylen generointi
 
 jxr:jxr checkstyle:checkstyle
+
+### Javadocin generointi
+
+mvn javadoc:javadoc
