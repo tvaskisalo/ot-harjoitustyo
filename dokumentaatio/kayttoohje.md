@@ -14,6 +14,7 @@ java -jar ExerciseApp2.0.jar
 
 ### Kirjautuminen
 Ohjelma muistaa käyttäjiä eri käyttäjänimien pohjalta. Ohjelma kysyy ensimmäisenä käyttäjänimeä:
+
 ![Kirjautuminen](https://user-images.githubusercontent.com/61991314/80472616-a1e75180-894d-11ea-9e14-170490a63055.PNG)
 
 Jos sinulla on jo olemassa oleva käyttäjänimi voit kirjoittaa sen suoraan tekstikenttään ja ohjelma muistaa tehtyjen tehtävien määrän ja oikeat vastaukset.
@@ -21,6 +22,7 @@ Jos et ole koskaan käyttänyt ohjelmaa, voit kirjoittaa haluamasi käyttäjäni
 
 ### Tehtävien tekemisen aloittaminen
 Kun olet valinnut käyttäjänimen pääset seuraavaan näkymään:
+
 ![menu](https://user-images.githubusercontent.com/61991314/80472650-af9cd700-894d-11ea-81cf-64cc15aca05f.PNG)
 
 Tästä voit valita haluamasi tehtävän seuraavista: Algebra, Functions ja Vectors.
