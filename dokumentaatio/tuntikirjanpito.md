@@ -11,4 +11,6 @@
 18.4 |1| Lisättiin teksti, joka kertoo pisteet ja onnistumisprosentin
 20.4 |3| Lisättiin jar-generointi ja korjailtiin virheitä ym
 21.4 |1| Kasvatettiin testikattavuutta
-yht |20|
+25.4 |3| Lisättiin uusi tehtävämuoto
+26.4 |2| Korjattiin bugeja testeihin liittyen, tehtiin lisää testejä ja muokattiin UI:n toimintaa
+yht |25|
