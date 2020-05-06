@@ -18,9 +18,12 @@ public class DataBase {
     public DataBase() {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:userdata.db");
-            Statement s = conn.createStatement();
-            s.execute("CREATE TABLE Users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, exercises INTEGER, correct INTEGER)");
+            Statement s1 = conn.createStatement();
+            s1.execute("CREATE TABLE Users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, exercises INTEGER, correct INTEGER)");
+            Statement s2 = conn.createStatement();
+            s2.execute("CREATE TABLE Custom (id INTEGER UNIQUE, question TEXT, answer TEXT)");
         } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
     
@@ -93,7 +96,7 @@ public class DataBase {
             ps.close();
             return count;
         } catch (Exception e) {
-
+            System.out.println(e.getMessage());
         }
         return 0;
     }
@@ -110,8 +113,68 @@ public class DataBase {
             ps.execute();
             ps.close();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            
         }
+    }
+    
+    public int getAmountOfCustomExercises() {
+ 
+        try {
+            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(id) FROM Custom");
+            ResultSet r = ps.executeQuery();
+            int max = r.getInt(1);
+            ps.close();
+            return max;
+        } catch(Exception e) {
+            
+        }
+        return 0;
+    }
+    
+    public String getCustomExerciseQuestion(int id) {
+        try {
+            PreparedStatement ps = conn.prepareStatement("SELECT question FROM Custom WHERE id=?");
+            ps.setInt(1, id);
+            ResultSet r = ps.executeQuery();
+            String question = r.getString("question");
+            ps.close();
+            return question;
+        } catch(Exception e) {
+
+        }
+        return "";
+    }
+    
+    public String getCustomExerciseAnswer(int id) {
+        try {
+            PreparedStatement ps = conn.prepareStatement("SELECT answer FROM Custom WHERE id=?");
+            ps.setInt(1, id);
+            ResultSet r = ps.executeQuery();
+            String answer = r.getString("answer");
+            ps.close();
+            return answer;
+        } catch(Exception e) {
+
+        }
+        return "";
+    }
+    
+    public void createNewCustomExercise(String question, String answer) {
+        int nro = this.getAmountOfCustomExercises();
+        try {
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO Custom (id, question, answer) VALUES (?,?, ?)");
+            ps.setInt(1, nro+1);
+            ps.setString(2, question);
+            ps.setString(3, answer);
+            ps.execute();
+            ps.close();
+        } catch(Exception e) {
+
+        }
+    }
+    
+    public double getPercent() {
+        return this.getPoints()*100/this.getExerciseCount();
     }
     
 }

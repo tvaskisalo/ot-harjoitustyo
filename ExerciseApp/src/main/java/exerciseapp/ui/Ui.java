@@ -6,13 +6,13 @@
 package exerciseapp.ui;
 
 import exerciseapp.dao.DataBase;
-import java.util.Scanner;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import exerciseapp.logic.Algebra;
+import exerciseapp.logic.CustomExercise;
 import exerciseapp.logic.Function;
 import exerciseapp.logic.Vector;
 
@@ -23,18 +23,7 @@ import exerciseapp.logic.Vector;
 public class Ui extends Application {
     
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        Ui ui = new Ui ();
-        System.out.println("[0] Text UI ");
-        System.out.println("[1] Graphical UI");
-        int choice = Integer.valueOf(scan.nextLine());
-        if(choice==1) {
-            launch();
-        }
-        if(choice ==0) {
-            ui.textUI(scan);
-        }
-        
+        launch();
         
     }    
     
@@ -68,18 +57,22 @@ public class Ui extends Application {
         Button algebra = new Button("Algebra");
         Button functions = new Button("Functions");
         Button vectors = new Button("Vectors");
+        Button createCustom = new Button("Create custom exercise");
+        Button custom = new Button("Custom exercise");
         
         menu.add(header, 0, 0);
         menu.add(algebra, 1, 1);
         menu.add(functions, 2, 1);
         menu.add(vectors, 3, 1);
-
+        menu.add(custom, 4, 1);
+        menu.add(createCustom, 1, 2);
+        
         
         start.setCenter(user);
         primary.setScene(new Scene(start));
         primary.setTitle("ExerciseApp");
-        primary.setMinHeight(350);
-        primary.setMinWidth(350);
+        primary.setMinHeight(450);
+        primary.setMinWidth(650);
         primary.show();
         
         confirm.setOnMouseClicked((event) -> {
@@ -116,6 +109,16 @@ public class Ui extends Application {
             start.setCenter(functionExercise.getScene());
         });
         
+        custom.setOnMouseClicked((event) -> {
+            ExerciseUi customExercise = new ExerciseUi(new CustomExercise(db), db, points, percent);
+            start.setCenter(customExercise.getScene());
+        });
+        
+        createCustom.setOnMouseClicked((event)-> {
+            CustomExerciseUi customUi = new CustomExerciseUi(db);
+            start.setCenter(customUi.getScene());
+        });
+        
         mainMenu.setOnMouseClicked((event) -> {
             start.setCenter(menu);
         });
@@ -123,43 +126,4 @@ public class Ui extends Application {
         
     }
 
-    
-    public void textUI(Scanner scan) {
-        while(true){
-            System.out.println("[1] Begin excercise");
-            System.out.println("[0] Quit");
-            int command = Integer.valueOf(scan.nextLine());
-            if(command==0) {
-                break;
-            }
-            if(command==1) {
-                System.out.println("[1] Algebra");
-                System.out.println("[0] Functions");
-                command = Integer.valueOf(scan.nextLine());
-                if(command==1) {
-                    Algebra al = new Algebra();
-                    System.out.println(al.generateQuestion());
-                    String answer = scan.nextLine();
-                    boolean correct =al.checkAnswer(answer);
-                    if(correct) {
-                        System.out.println("Good work!");
-                    } else {
-                        System.out.println("Wrong! Correct answer is:" +al.getCorrectAnswer());
-                    }
-                }
-                if(command ==0) {
-                    Function fu = new Function();
-                    System.out.println(fu.generateQuestion());
-                    String answer = scan.nextLine();
-                    boolean correct =fu.checkAnswer(answer);
-                    if(correct) {
-                        System.out.println("Good work!");
-                    } else {
-                    System.out.println("Wrong! Correct answer is:" +fu.getCorrectAnswer());
-                    }
-                } 
-            }
-        }
-        System.out.println("Goodbye!");
-    }
 }

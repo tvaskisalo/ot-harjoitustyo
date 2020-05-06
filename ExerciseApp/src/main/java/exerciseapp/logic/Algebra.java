@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package exerciseapp.logic;
+import exerciseapp.dao.DataBase;
 import java.util.*;
 
 /**
@@ -15,6 +16,7 @@ public class Algebra implements Exercise {
     private int b;
     private int correctAnswer;
 
+    
     public Algebra() {
         Random r = new Random();
         a = r.nextInt(101);
@@ -32,20 +34,24 @@ public class Algebra implements Exercise {
 
     @Override
     public boolean checkAnswer(String answer) throws NumberFormatException {
-        int ans = Integer.parseInt(answer);
-        return ans == correctAnswer;
+        return Integer.parseInt(answer) == this.correctAnswer;
     }
+    
 
     /**
      * Metodi Generoi uuden kysymyksen
      * @return Generoitu kysymys
      */
-    @Override
-    public String generateQuestion() {
+    
+    private void generateNewNumbers() {
         Random r = new Random();
         a = r.nextInt(101);
         b = r.nextInt(101);
         correctAnswer = a + b;
+    }
+    @Override
+    public String generateQuestion() {
+        this.generateNewNumbers();
         return "Calculate " + a + " + " + b;
         
     }

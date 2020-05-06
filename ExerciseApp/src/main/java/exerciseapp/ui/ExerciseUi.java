@@ -72,7 +72,7 @@ public class ExerciseUi {
                 if(db.getExerciseCount()==0) {
                     percent.setText("Success rate: 0%"); 
                 } else {
-                    percent.setText("Success rate: "+((db.getPoints()*100)/db.getExerciseCount())+ "%");
+                    percent.setText("Success rate: "+db.getPercent()+ "%");
                 }
             } catch(Exception e) {
                 feedback.setText("Please input numbers only");

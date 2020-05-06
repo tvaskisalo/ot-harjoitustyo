@@ -5,6 +5,7 @@
  */
 package exerciseapp.logic;
 
+import exerciseapp.dao.DataBase;
 import java.util.Random;
 
 /**
@@ -17,7 +18,10 @@ public class Function implements Exercise {
     private int c;
     private int x;
     private int answer;
+    
 
+     public Function() {
+    }
     /**
      * Metodi tarkistaa käyttäjän antaman vastauksen viimeksi generoituun kysymykseen.
      * 
@@ -25,6 +29,7 @@ public class Function implements Exercise {
      * @return Oliko vastaus oikein vaiko ei
      * @throws NumberFormatException Jos annettu vastaus ei ole numero
      */
+    
     @Override
     public boolean checkAnswer(String answer) throws NumberFormatException {
         return Integer.parseInt(answer) == this.answer;
@@ -34,33 +39,38 @@ public class Function implements Exercise {
      * Metodi Generoi uuden kysymyksen
      * @return Generoitu kysymys
      */
-    @Override
-    public String generateQuestion() {
-        StringBuilder function = new StringBuilder("f(x)=");
+    
+    private void generateNewNumbers() {
         Random r = new Random();
         a = 5 - r.nextInt(10);
         b = 5 - r.nextInt(10);
         c = 5 - r.nextInt(10);
         x = r.nextInt(4);
         answer = a * x * x + b * x + c;
+    }
+    
+    @Override
+    public String generateQuestion() {
+        StringBuilder question= new StringBuilder("f(x)=");
+        
         if (a != 0) {
-            function.append(a + "x²");
+            question.append(a + "x²");
         }
         if (b > 0) {
-            function.append("+" + b + "x");
+            question.append("+" + b + "x");
         }
         if (b < 0) {
-            function.append(b + "x");
+            question.append(b + "x");
         }
         if (c > 0) {
-            function.append("+" + c);
+            question.append("+" + c);
         }
         if (c < 0) {
-            function.append(c);
+            question.append(c);
         }
-        function.append("\n");
-        function.append("Find f(" + x + ")");
-        return function.toString();
+        question.append("\n");
+        question.append("Find f(" + x + ")");
+        return question.toString();
     }
 
     /**

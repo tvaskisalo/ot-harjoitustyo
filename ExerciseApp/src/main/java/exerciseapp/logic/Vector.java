@@ -5,6 +5,7 @@
  */
 package exerciseapp.logic;
 
+import exerciseapp.dao.DataBase;
 import java.util.Random;
 
 /**
@@ -25,9 +26,22 @@ public class Vector implements Exercise {
      * @return Oliko vastaus oikein vaiko ei
      * @throws NumberFormatException Jos annettu vastaus ei ole numero
      */
+    
+    
+    
+
     @Override
     public boolean checkAnswer(String answer) throws NumberFormatException {
         return Integer.parseInt(answer) == this.answer;
+    }
+    
+    private void generateNewNumbers() {
+        Random r = new Random();
+        a = -5 + r.nextInt(11);
+        b = -5 + r.nextInt(11);
+        c = -5 + r.nextInt(11);
+        d = -5 + r.nextInt(11);
+        answer = a * c + b * d;
     }
 
     /**
@@ -36,12 +50,7 @@ public class Vector implements Exercise {
      */
     @Override
     public String generateQuestion() {
-        Random r = new Random();
-        a = -5 + r.nextInt(11);
-        b = -5 + r.nextInt(11);
-        c = -5 + r.nextInt(11);
-        d = -5 + r.nextInt(11);
-        answer = a * c + b * d;
+        this.generateNewNumbers();
         return "Calculate the scalar product of (" + a + "," + b + ") and (" + c + "," + d + ").";
     }
 
