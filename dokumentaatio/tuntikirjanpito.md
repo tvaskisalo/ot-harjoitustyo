@@ -13,4 +13,6 @@
 21.4 |1| Kasvatettiin testikattavuutta
 25.4 |3| Lisättiin uusi tehtävämuoto
 26.4 |2| Korjattiin bugeja testeihin liittyen, tehtiin lisää testejä ja muokattiin UI:n toimintaa
-yht |25|
+6.5 |2| Luotiin ohjelmakoodi omatekemien tehtävien luomiseen
+7.5 |3| Viimeisteltiin ohjelmakoodi omatekemien tehtävien luomiseen. Lisättiin koodia, että ohjelma muistaa luodut tehtävät.
+yht |30|
