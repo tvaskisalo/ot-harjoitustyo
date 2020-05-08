@@ -17,4 +17,5 @@
 6.5 |3| Viimeisteltiin ohjelmakoodi omatekemien tehtävien luomiseen. Lisättiin koodia, että ohjelma muistaa luodut tehtävät.
 7.5 |2| Korjailtiin bugeja
 8.5 |2| Lisättiin testejä
-yht |34|
+8.5 |1| Lisättiin javadocumentteja luokille
+yht |35|
