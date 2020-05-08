@@ -8,13 +8,18 @@ package exerciseapp.dao;
 import java.sql.*;
 
 /**
- *  Luokalla voidaan luoda SQLite tietokanta, johon tallennetaan käyttäjiä, niiden pisteitä ja määriä niiden tehdyistä tehtävistä
+ *  Luokalla voidaan luoda SQLite tietokanta, johon tallennetaan käyttäjiä, niiden pisteitä ja määriä niiden tehdyistä tehtävistä.
+ *  Luokka pitää myös kirjaa käyttäjien omatekemistä kysymyksistä ja niiden vastauksista
  * 
  */
 public class Database {
     private String username;
     private Connection conn;
-
+    
+    /**
+     * Konstutori luo uuden db-tiedoston, jos sitä ei ole olemassa
+     * @param filename halutun tiedoston nimi.
+     */
     public Database(String filename) {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:"+filename+".db");
@@ -117,6 +122,10 @@ public class Database {
         }
     }
     
+    /**
+     * Metodi hakee tietokannasta käyttäjien omatekemien tehtävien määrän
+     * @return Palauttaa tehtävien määrän
+     */
     public int getAmountOfCustomExercises() {
  
         try {
@@ -131,6 +140,11 @@ public class Database {
         return 0;
     }
     
+    /**
+     * Metodi hakee tietokannasta annetua numeroa vastaavan kysymyksen
+     * @param id Parametri on halutun kysymyksen numero
+     * @return Palauttaa kysymyksen
+     */
     public String getCustomExerciseQuestion(int id) {
         try {
             PreparedStatement ps = conn.prepareStatement("SELECT question FROM Custom WHERE id=?");
@@ -145,6 +159,11 @@ public class Database {
         return "";
     }
     
+    /**
+     * Metodi hakee tietokannasta annetua numeroa vastaavan vastauksen
+     * @param id Parametri on halutun vastauksen numero
+     * @return Palauttaa vastauksen
+     */
     public String getCustomExerciseAnswer(int id) {
         try {
             PreparedStatement ps = conn.prepareStatement("SELECT answer FROM Custom WHERE id=?");
@@ -158,6 +177,12 @@ public class Database {
         }
         return "";
     }
+    
+    /**
+     *  Metodin avulla voidaan lisätä tietokantaan käyttäjän syöttämä kysymys ja vastaus.
+     * @param question Käyttäjän antama kysymys
+     * @param answer Käyttäjän antama vastaus
+     */
     
     public void createNewCustomExercise(String question, String answer) {
         int nro = this.getAmountOfCustomExercises();
@@ -173,10 +198,17 @@ public class Database {
         }
     }
     
+    /**
+     * Metodi lasekee mikä on käyttäjän tehtävien onnistumisprosentti.
+     * @return Palauttaa lasektun  prosentin.-
+     */
     public double getPercent() {
         return this.getPoints() * 100 / this.getExerciseCount();
     }
     
+    /**
+     * Metodilla voidaan poistaa taulut tietokannassa (vain testejä varten)
+     */
     public void dropTables() {
         try {
             Statement s1 = conn.createStatement();

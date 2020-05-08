@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package exerciseapp.logic;
-
-import exerciseapp.dao.Database;
 import java.util.Random;
 
 /**
@@ -27,14 +25,13 @@ public class Vector implements Exercise {
      * @throws NumberFormatException Jos annettu vastaus ei ole numero
      */
     
-    
-    
-
     @Override
     public boolean checkAnswer(String answer) throws NumberFormatException {
         return Integer.parseInt(answer) == this.answer;
     }
-    
+    /**
+     * Metodi luo uudet satunnaiset luvut muuttujille ja vastaukselle.
+     */
     private void generateNewNumbers() {
         Random r = new Random();
         a = -5 + r.nextInt(11);

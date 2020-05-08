@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package exerciseapp.logic;
-
-import exerciseapp.dao.Database;
 import java.util.Random;
 
 /**
@@ -32,11 +30,9 @@ public class Function implements Exercise {
         return Integer.parseInt(answer) == this.answer;
     }
     
-    /**
-     * Metodi Generoi uuden kysymyksen
-     * @return Generoitu kysymys
+     /**
+     * Metodi luo uudet satunnaiset luvut muuttujille ja vastaukselle.
      */
-    
     private void generateNewNumbers() {
         Random r = new Random();
         a = 5 - r.nextInt(10);
@@ -45,6 +41,11 @@ public class Function implements Exercise {
         x = r.nextInt(5);
         answer = a * x * x + b * x + c;
     }
+    
+    /**
+     * Metodi Generoi uuden kysymyksen
+     * @return Generoitu kysymys
+     */
     
     @Override
     public String generateQuestion() {

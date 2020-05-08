@@ -9,8 +9,8 @@ import exerciseapp.dao.Database;
 import java.util.Random;
 
 /**
- *
- * @author Tapan
+ *  Luokka tarjoaa metodeita käyttäjän omia tehtäviä varten käyttäen luokaa Database
+ * 
  */
 public class CustomExercise implements Exercise {
     private String question;
@@ -25,11 +25,20 @@ public class CustomExercise implements Exercise {
         tehtavienMaara = db.getAmountOfCustomExercises();
     }
     
+    /**
+     * Metodilla voidaan tarkistaa oliko tehtävään annettu vastaus oikein
+     * @param answer käyttäjän antama vastaus
+     * @return  Palauttaa totuusarvon sen mukaan, oliko vastaus oikein
+     */
     @Override
     public boolean checkAnswer(String answer) {
         return answer.toLowerCase().trim().equals(this.answer);
     }
 
+    /**
+     * Metodilla generoidaan uusi kysymys ja vastaus tietokannasta.
+     * @return Palauttaa generoidun kysymyksen.
+     */
     @Override
     public String generateQuestion() {
         if (tehtavienMaara == 0) {
@@ -46,13 +55,23 @@ public class CustomExercise implements Exercise {
         return answer;
     }
 
+    /**
+     * Metdoilla haetaan Database-luokan avulla tietokannasta haluttu kysymys
+     */
     public void newQuestion() {
         question = db.getCustomExerciseQuestion(tehtavaId);
     }
 
+    /**
+     * Metdoilla haetaan Database-luokan avulla tietokannasta haluttu vastaus
+     */
     public void newAnswer() {
         answer = db.getCustomExerciseAnswer(tehtavaId);
     }
+    /**
+     * Metodilla luodaan uusi tehtävänumero, joka on väliltä yksi Tehtävien määrä tietokannassa.
+     * Metodi luo aina eri numeron, kun tehtäviä on enemmän kuin yksi. 
+     */
     
     public void generateNewExerciseNumber() {
         Random r = new Random();
