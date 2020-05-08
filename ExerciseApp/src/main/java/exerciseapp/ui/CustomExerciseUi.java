@@ -5,7 +5,7 @@
  */
 package exerciseapp.ui;
 
-import exerciseapp.dao.DataBase;
+import exerciseapp.dao.Database;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Label;
@@ -17,10 +17,10 @@ import javafx.scene.layout.GridPane;
  * @author Tapan
  */
 public class CustomExerciseUi {
-    private final DataBase db;
+    private final Database db;
     private final BorderPane background;
 
-    public CustomExerciseUi(DataBase db) {
+    public CustomExerciseUi(Database db) {
         this.db = db;
         background = new BorderPane();
         GridPane grid = new GridPane();
@@ -52,9 +52,9 @@ public class CustomExerciseUi {
             String question = questionField.getText();
             question = question.toLowerCase().trim();
             
-            if(answer.equals("") || question.equals("")) {
+            if (answer.equals("") || question.equals("")) {
                 output.setText("Incorrect input");
-            } else if(answer.length()>35 || question.length() > 35) {
+            } else if (answer.length() > 35 || question.length() > 35) {
                 output.setText("The question or the answer is too long");
             } else {
                 db.createNewCustomExercise(question, answer);

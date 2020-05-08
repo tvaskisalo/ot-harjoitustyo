@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package exerciseapp.logic;
-import exerciseapp.dao.DataBase;
+import exerciseapp.dao.Database;
 import java.util.*;
 
 /**

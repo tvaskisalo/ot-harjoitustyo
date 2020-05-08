@@ -5,8 +5,7 @@
  */
 package exerciseapp.logic;
 
-import exerciseapp.dao.DataBase;
-import java.util.ArrayList;
+import exerciseapp.dao.Database;
 import java.util.Random;
 
 /**
@@ -18,22 +17,22 @@ public class CustomExercise implements Exercise {
     private String answer;
     private int tehtavaId;
     private int tehtavienMaara;
-    private DataBase db;
+    private Database db;
 
-    public CustomExercise(DataBase db) {
-        tehtavaId=1;
-        this.db=db;
-        tehtavienMaara=db.getAmountOfCustomExercises();
+    public CustomExercise(Database db) {
+        tehtavaId = 1;
+        this.db = db;
+        tehtavienMaara = db.getAmountOfCustomExercises();
     }
     
     @Override
     public boolean checkAnswer(String answer) {
-        return answer.toLowerCase().trim().equals(answer);
+        return answer.toLowerCase().trim().equals(this.answer);
     }
 
     @Override
     public String generateQuestion() {
-        if(tehtavienMaara==0) {
+        if (tehtavienMaara == 0) {
             return "There are no custom exercises";
         }
         this.generateNewExerciseNumber();
@@ -57,12 +56,31 @@ public class CustomExercise implements Exercise {
     
     public void generateNewExerciseNumber() {
         Random r = new Random();
-        int index = r.nextInt(tehtavienMaara)+1;
-        while(index==tehtavaId && tehtavienMaara!=1) {
-            index = r.nextInt(tehtavienMaara)+1;
+        int index = r.nextInt(tehtavienMaara) + 1;
+        while (index == tehtavaId && tehtavienMaara != 1) {
+            index = r.nextInt(tehtavienMaara) + 1;
         }
-        tehtavaId=index;
+        tehtavaId = index;
     }
-    
+
+    public int getTehtavienMaara() {
+        return tehtavienMaara;
+    }
+
+    public void setTehtavaId(int tehtavaId) {
+        this.tehtavaId = tehtavaId;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public int getTehtavaId() {
+        return tehtavaId;
+    }
     
 }

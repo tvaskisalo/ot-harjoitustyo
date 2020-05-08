@@ -5,7 +5,7 @@
  */
 package exerciseapp.logic;
 
-import exerciseapp.dao.DataBase;
+import exerciseapp.dao.Database;
 import java.util.Random;
 
 /**
@@ -19,9 +19,6 @@ public class Function implements Exercise {
     private int x;
     private int answer;
     
-
-     public Function() {
-    }
     /**
      * Metodi tarkistaa käyttäjän antaman vastauksen viimeksi generoituun kysymykseen.
      * 
@@ -45,14 +42,14 @@ public class Function implements Exercise {
         a = 5 - r.nextInt(10);
         b = 5 - r.nextInt(10);
         c = 5 - r.nextInt(10);
-        x = r.nextInt(4);
+        x = r.nextInt(5);
         answer = a * x * x + b * x + c;
     }
     
     @Override
     public String generateQuestion() {
-        StringBuilder question= new StringBuilder("f(x)=");
-        
+        this.generateNewNumbers();
+        StringBuilder question = new StringBuilder("f(x)=");
         if (a != 0) {
             question.append(a + "x²");
         }
@@ -70,6 +67,7 @@ public class Function implements Exercise {
         }
         question.append("\n");
         question.append("Find f(" + x + ")");
+        
         return question.toString();
     }
 

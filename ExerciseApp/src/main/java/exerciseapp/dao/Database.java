@@ -11,19 +11,19 @@ import java.sql.*;
  *  Luokalla voidaan luoda SQLite tietokanta, johon tallennetaan käyttäjiä, niiden pisteitä ja määriä niiden tehdyistä tehtävistä
  * 
  */
-public class DataBase {
+public class Database {
     private String username;
     private Connection conn;
 
-    public DataBase() {
+    public Database(String filename) {
         try {
-            conn = DriverManager.getConnection("jdbc:sqlite:userdata.db");
+            conn = DriverManager.getConnection("jdbc:sqlite:"+filename+".db");
             Statement s1 = conn.createStatement();
             s1.execute("CREATE TABLE Users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, exercises INTEGER, correct INTEGER)");
             Statement s2 = conn.createStatement();
             s2.execute("CREATE TABLE Custom (id INTEGER UNIQUE, question TEXT, answer TEXT)");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+
         }
     }
     
@@ -125,7 +125,7 @@ public class DataBase {
             int max = r.getInt(1);
             ps.close();
             return max;
-        } catch(Exception e) {
+        } catch (Exception e) {
             
         }
         return 0;
@@ -139,7 +139,7 @@ public class DataBase {
             String question = r.getString("question");
             ps.close();
             return question;
-        } catch(Exception e) {
+        } catch (Exception e) {
 
         }
         return "";
@@ -153,7 +153,7 @@ public class DataBase {
             String answer = r.getString("answer");
             ps.close();
             return answer;
-        } catch(Exception e) {
+        } catch (Exception e) {
 
         }
         return "";
@@ -163,18 +163,29 @@ public class DataBase {
         int nro = this.getAmountOfCustomExercises();
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO Custom (id, question, answer) VALUES (?,?, ?)");
-            ps.setInt(1, nro+1);
+            ps.setInt(1, nro + 1);
             ps.setString(2, question);
             ps.setString(3, answer);
             ps.execute();
             ps.close();
-        } catch(Exception e) {
+        } catch (Exception e) {
 
         }
     }
     
     public double getPercent() {
-        return this.getPoints()*100/this.getExerciseCount();
+        return this.getPoints() * 100 / this.getExerciseCount();
+    }
+    
+    public void dropTables() {
+        try {
+            Statement s1 = conn.createStatement();
+            s1.execute("DROP TABLE Custom");
+            Statement s2 = conn.createStatement();
+            s2.execute("DROP TABLE Users");
+        } catch (Exception e) {
+            
+        }
     }
     
 }

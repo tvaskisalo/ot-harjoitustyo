@@ -5,7 +5,7 @@
  */
 package exerciseapp.logic;
 
-import exerciseapp.dao.DataBase;
+import exerciseapp.dao.Database;
 import java.util.Random;
 
 /**

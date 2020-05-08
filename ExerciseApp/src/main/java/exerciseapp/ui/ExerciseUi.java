@@ -5,7 +5,8 @@
  */
 package exerciseapp.ui;
 
-import exerciseapp.dao.DataBase;
+import exerciseapp.dao.Database;
+import exerciseapp.logic.CustomExercise;
 import exerciseapp.logic.Exercise;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,8 +22,9 @@ public class ExerciseUi {
     private final Exercise exercise;
     private final BorderPane background;
 
-    public ExerciseUi(Exercise exercise, DataBase db, Label points, Label percent) {
+    public ExerciseUi(Exercise exercise, Database db, Label points, Label percent) {
         this.exercise =exercise;
+        
         Button checkButton = new Button("Check:");
         Button generate = new Button("Generate a new question");
         Button showAnswer = new Button("Show answer");
@@ -40,6 +42,12 @@ public class ExerciseUi {
         grid.add(checkButton,0, 3);
         grid.add(feedback, 0, 4);
         background.setCenter(grid);
+        
+        if (exercise instanceof CustomExercise) {
+            if (((CustomExercise) exercise).getTehtavienMaara() == 0) {
+                checkButton.setDisable(true);
+            }
+        }
         
         generate.setOnMouseClicked((event)-> {
            question.setText(exercise.generateQuestion());
