@@ -23,12 +23,15 @@ Jos et ole koskaan käyttänyt ohjelmaa, voit kirjoittaa haluamasi käyttäjäni
 ### Tehtävien tekemisen aloittaminen
 Kun olet valinnut käyttäjänimen pääset seuraavaan näkymään:
 
-![menu](https://user-images.githubusercontent.com/61991314/80472650-af9cd700-894d-11ea-81cf-64cc15aca05f.PNG)
+![menu](https://user-images.githubusercontent.com/61991314/81474517-a134a200-920e-11ea-9581-99165c20d2cd.PNG)
 
 Tästä voit valita haluamasi tehtävän seuraavista: Algebra, Functions ja Vectors.
 Algebra tehtäväsarjassa pääset laskemaan yksinkertaisia pluslaskuja.
 Functions tehtäväsarjassa pääset ratkaisemaan eri funktioiden arvoja eri pisteissä.
 Vectors tehtäväsarjassa pääset ratkaisemaan eri vektoreiden pistetuloja.
+Custom tehtäväsarjassa pääset tekemään omatekemiä tai toisten käyttäjien tekemiä tehtäviä.
+
+Nappiin "Create custom exercise" paneudutaan osiossa "Oman tehtävän luonti"
 
 Näet myös kokoajan alapalkissa käyttäjänimen, pisteesi ja onnistumisprosentin.
 Yläkulmassa olevasta napista "Main menu" pääset takaisin tehtäväsarjojen valintaan.
@@ -57,3 +60,27 @@ Kuitenkin et voi enää nappia painettua vastata kysymykseen.
 
 Jos haluat tehdä lisää tehtäviä, voit painaa napista "Generate a new question", jolloin ohjelma generoi uuden tehtävän.
 Tai voit vaihtoehtoisesti palata tehtävien valintaan painamalla nappia "main menu".
+
+### Oman tehtävän luonti
+Jos valitsee alkuruudusta painikkeen "Create custom exercise" pääsee seuraavaan näkymään:
+
+![Custom](https://user-images.githubusercontent.com/61991314/81474511-9bd75780-920e-11ea-9fef-5059cffd471b.PNG)
+
+Tässä voit lisätä oman tehtäväsi sovellukseen. Kirjoita vasemmanpuoleiseen tekstikenttään haluamasi kysymys ja oikeanpuoleiseen tekstikenttään kysymyksen oikea vastaus. Huomioi, että kysymyksen ja vastuksen pituus voi olla maksimissaan 50 merkkiä.
+
+![create](https://user-images.githubusercontent.com/61991314/81474507-9712a380-920e-11ea-8ed3-fc21f0ac3040.PNG)
+
+Jos haluat lisätä tehtävän sovellukseen paina nappia "Add exercise". Jos kysymys ja vastaus olivat oikean pituisia, sovellus kertoo, että tehtävä on lisätty.
+
+![added](https://user-images.githubusercontent.com/61991314/81474504-92e68600-920e-11ea-96cb-ead56c6616fb.PNG)
+
+Jos kuitenkin laitoit liian pitkän kysymyksen tai vastauksen tai toinen tekstikentistä oli tyhjä, antaa sovellus virheilmoituksen.
+
+![long](https://user-images.githubusercontent.com/61991314/81474497-895d1e00-920e-11ea-8a32-e388ae25d174.PNG)
+
+Esimerkissä kysymys oli "Onko sataviisikymmentätuhattakolmesataayksi liian pitkä kysymyslause?", joka on liian pitkä.
+
+Kun olet lisännyt tehtävän sovellukseen, voi tehtävä tulla vastaan, kun tekee tehtäväsarjan "Custom" tehtäviä. Se arpoo satunnaisesti tehtäviä kaikkien käyttäjien tekemistä tehtävistä.
+
+
+
