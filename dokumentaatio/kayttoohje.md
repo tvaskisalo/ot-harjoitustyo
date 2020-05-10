@@ -1,5 +1,5 @@
 ## Käyttöohje
-Lataa tiedosto [ExerciseApp2](https://github.com/tvaskisalo/ot-harjoitustyo/releases/download/2/ExerciseApp2.0.jar)
+Lataa tiedosto [ExerciseApp](https://github.com/tvaskisalo/ot-harjoitustyo/releases/download/final/ExerciseApp.jar)
 
 ## Konfigurointi
 Ohjelmaa ei tarvitse erikseen konfiguroida, kunhan on ladattuna maven ja java 1.8
