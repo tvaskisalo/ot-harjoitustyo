@@ -18,4 +18,6 @@
 7.5 |2| Korjailtiin bugeja
 8.5 |2| Lisättiin testejä
 8.5 |1| Lisättiin javadocumentteja luokille
-yht |35|
+9.5 |2| Virheiden korjailua ja dokumentointia
+10.5 |2| Hienosäätoä ja dokumettien kirjoittelua puhtaaksi
+yht |39|
