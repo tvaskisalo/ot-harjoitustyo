@@ -12,7 +12,7 @@ import java.sql.*;
  *  Luokka pitää myös kirjaa käyttäjien omatekemistä kysymyksistä ja niiden vastauksista
  * 
  */
-public class Database {
+public class Database implements DataDao {
     private String username;
     private Connection conn;
     

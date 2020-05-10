@@ -5,6 +5,7 @@
  */
 package exerciseapp.ui;
 
+import exerciseapp.dao.DataDao;
 import exerciseapp.dao.Database;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -30,7 +31,7 @@ public class Ui extends Application {
     @Override
     public void start(Stage primary) {
         BorderPane start = new BorderPane();
-        Database db = new Database("userdata");
+        DataDao db = new Database("userdata");
         
         GridPane user = new GridPane();
         Label instruction = new Label("Give a username: ");

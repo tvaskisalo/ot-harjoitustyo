@@ -5,7 +5,7 @@
  */
 package exerciseapp.ui;
 
-import exerciseapp.dao.Database;
+import exerciseapp.dao.DataDao;
 import exerciseapp.logic.CustomExercise;
 import exerciseapp.logic.Exercise;
 import javafx.scene.control.Button;
@@ -22,7 +22,7 @@ public class ExerciseUi {
     private final Exercise exercise;
     private final BorderPane background;
 
-    public ExerciseUi(Exercise exercise, Database db, Label points, Label percent) {
+    public ExerciseUi(Exercise exercise, DataDao db, Label points, Label percent) {
         this.exercise =exercise;
         
         Button checkButton = new Button("Check:");

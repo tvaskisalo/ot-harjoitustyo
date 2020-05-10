@@ -5,7 +5,7 @@
  */
 package exerciseapp.ui;
 
-import exerciseapp.dao.Database;
+import exerciseapp.dao.DataDao;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Label;
@@ -17,18 +17,18 @@ import javafx.scene.layout.GridPane;
  * @author Tapan
  */
 public class CustomExerciseUi {
-    private final Database db;
+    private final DataDao db;
     private final BorderPane background;
 
-    public CustomExerciseUi(Database db) {
+    public CustomExerciseUi(DataDao db) {
         this.db = db;
         background = new BorderPane();
         GridPane grid = new GridPane();
         
         Button addExercise = new Button("Add exercise");
         
-        Label answerInstruction = new Label("Input the correct answer here \n Maximum character length is 35 characters");
-        Label questionInstruction = new Label("Input your quesion here \n Maximum character length is 35 characters");
+        Label answerInstruction = new Label("Input the correct answer here \n Maximum character length is 50 characters");
+        Label questionInstruction = new Label("Input your quesion here \n Maximum character length is 50 characters");
         Label output = new Label("");
         
         TextField answerField = new TextField();
@@ -54,7 +54,7 @@ public class CustomExerciseUi {
             
             if (answer.equals("") || question.equals("")) {
                 output.setText("Incorrect input");
-            } else if (answer.length() > 35 || question.length() > 35) {
+            } else if (answer.length() > 50 || question.length() > 50) {
                 output.setText("The question or the answer is too long");
             } else {
                 db.createNewCustomExercise(question, answer);

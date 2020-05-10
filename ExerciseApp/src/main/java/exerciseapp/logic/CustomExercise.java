@@ -5,7 +5,7 @@
  */
 package exerciseapp.logic;
 
-import exerciseapp.dao.Database;
+import exerciseapp.dao.DataDao;
 import java.util.Random;
 
 /**
@@ -17,9 +17,9 @@ public class CustomExercise implements Exercise {
     private String answer;
     private int tehtavaId;
     private int tehtavienMaara;
-    private Database db;
+    private DataDao db;
 
-    public CustomExercise(Database db) {
+    public CustomExercise(DataDao db) {
         tehtavaId = 1;
         this.db = db;
         tehtavienMaara = db.getAmountOfCustomExercises();
