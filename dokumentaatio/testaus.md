@@ -13,7 +13,8 @@ Rajapinnan DataDao toteuttavan luokan DataBase testaus on tehty testillä Databa
 ### Testikattavuus
 Jos ei oteta Main-luokkaa tai käyttöliittymäluokkia testaukseen mukaan, niin rivikattavuus on 92% ja haarautumakattavuus 86%
 
-kuva
+![testikattavuus](https://user-images.githubusercontent.com/61991314/81503518-ab2cd280-92ec-11ea-8325-d88300f52c2c.PNG)
+
 
 Testeissä ei testattu gettereitä, eikä tilanteita, joita ei tapahdu, jos ohjelma toimii oikein (kuten catch() tilanteet). Myös testeistä uupuu joitain integraatiotestejä, kuten Exercise-rajapinnan toteuttavien luokkien ja Database-luokan integraatiotestaus.
 
