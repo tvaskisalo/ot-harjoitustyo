@@ -24,5 +24,5 @@ Sovellus on testattu toimivan käyttöohjeeen mukaan.
 Testattiin myös tilanteet, jossa tietokantatiedostot ovat olleet olemassa ja tilanne, joss sovellus joutuu tekemään ne itse.
 
 ### Toiminnallisuus
-Sovellusta on testattu, niin että on testattu kaikki määrittelydokumentin mainistemat toiminnallisuudet kaikilla mahdollisilla syötteillä. (Tyhjä vastauskenttä, liian pitkät vastaukset tai kirjaimia kohtiin, jotka haluaa vain numeroita).
+Sovellusta on testattu, niin että on testattu kaikki ![määrittelydokumentin](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md) mainistemat toiminnallisuudet kaikilla mahdollisilla syötteillä. (Tyhjä vastauskenttä, liian pitkät vastaukset tai kirjaimia kohtiin, jotka haluaa vain numeroita).
 
