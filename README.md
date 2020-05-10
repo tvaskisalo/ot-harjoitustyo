@@ -8,6 +8,8 @@
 
 [Käyttöohje](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
+[Testausdokumentti](https://github.com/tvaskisalo/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
+
 ## Komentorivitoimintoja
 
 ### Testit voidaan suorittaa komennolla 
